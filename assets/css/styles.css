@@ -197,6 +197,11 @@ a {
 
 .skills-text h1{
     text-transform: uppercase;
+    font-size: 6vw;
+}
+.skills-text h2{
+    font-size: 2vw;
+    height: 100vh;
 }
 
 .grid-skills img {
