@@ -1,0 +1,267 @@
+
+/*variaveis gerais*/
+:root {
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+    --light-gray-color: #EEEEEE;
+    --blue-dark-color: #060639;
+    --gap: 3rem;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+/*define a fonte, backgroud de toda pagina e espaçamento de vertical das letras*/
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.6rem;
+    background-color: var(--black-color);
+    line-height:1.5
+}
+/*62.5% para usarmos a escala de rem semelhante a px/10 */
+html {
+    font-size: 62.5%;
+}
+h1 {
+    font-size: 8rem;
+}
+h2 {
+    font-size: 3rem;
+}
+/*conteudo principal estabelece a largura maxima e um espaço nas laterais*/
+.main-content {
+    max-width:120rem;
+    margin: 0 auto;
+    padding: var(--gap);
+}
+
+
+/*background pricipal com a img e muda quando redimensiona a tela e background white que é o secundario*/
+.main-bg {
+    background-image: url('../img/main-bg.svg');
+    background-position: center center;
+    color: var(--white-color);
+}
+
+.white-bg {
+    background-color: var(--white-color);
+    color: var(--black-color);
+}
+
+.blue-bg {
+    background-color: rgb(2, 2, 43);
+    color: var(--white-color);
+}
+
+
+
+/*menu superior fixo*/
+/*define posiçao fixa, z-index para o menu ficar por cima do conteudo e largura 100%*/
+.menu {
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 0.1rem solid var(--light-gray-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.img-profile {
+    width: 5rem;
+    border-radius: 3rem;
+    margin-right: 1rem;
+}
+
+
+/*define um espaco abaixo do meu fixo superior, para o conteudo nao ficar escondindo atras*/
+.menu-space{
+    height: 6.5rem;
+}
+
+/* define espaço entre os dois conteudos do menu(logo e botões)*/
+.menu-content {    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/*retira a underline*/
+a {
+    text-decoration: none;
+}
+
+.menu a {
+    color: var(--black-color);
+}
+
+/*retira estilos de lista*/
+.menu ul {
+    list-style: none;
+    display: flex;
+} 
+
+/*faz cada nome do menu ser um bloco e relative faz a separação dos blocos para inserir a animação de cada botão*/
+.menu ul li a {
+    display: block;
+    padding: 1.8rem;
+    font-size: 1.8rem;
+    position: relative;
+}
+
+
+
+/*efeito animado de botão, bottom 1rem para subir a linha e fica abaixo do botão*/
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    width: 0;
+    height: 0.2rem;
+    background: var(--black-color);
+    transition: all 300ms ease-in-out;
+}
+
+.menu ul li a:hover::after {
+    width: 50%;
+    left: 25%;
+}
+
+.menu nav ul img {
+    margin-left: 3rem;
+}
+
+
+/*seções do site, para cada pagina dentro do viewport*/
+.section {
+    min-height: 100vh;
+}
+
+/*conteudp da intro do site, primeira seção*/
+.intro-content {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--gap);  
+    min-height: 100vh;  
+}
+
+.intro-text-content, .intro-img {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.intro-text-content h1 {
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.intro-img img {
+    max-width: 80%;
+    height: auto;
+    margin-top: 3rem;
+    margin-left: 5rem;
+}
+
+/*segunda seção*/
+.skills-content {
+    display: grid;
+    flex-flow: column wrap;
+    min-height: 100vh;
+    grid-template-columns: 1.5fr 1.5fr;
+}
+
+.skills-text {
+    color: var(--white-color);
+    margin-top: 10rem;
+    background-color: var(--blue-dark-color);
+    border-radius: 2rem;
+    text-align: center;
+    height: 55rem;
+}
+
+.skills-text h1{
+    text-transform: uppercase;
+}
+
+.grid-skills img {
+    max-width:28rem;
+    max-height:25rem;
+    width: auto;
+    height: auto;
+}
+.grid-skills img:hover {
+    transition: all 300ms ease-in-out;
+    transform: translate(-3%, 3%) scale(1.2) rotate(2deg);
+}
+
+
+.grid-skills {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/*seção tres- certificados*/
+.certificates-text {
+    margin-top: 2rem;
+    text-transform: uppercase;
+}
+
+.grid-certificates img {
+    max-width:38rem;
+    max-height:35rem;
+    width: auto;
+    height: auto;
+}
+
+.grid-certificates {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-certificates article img:hover {
+    transition: all 300ms linear;
+    transform: translate(-3%, 3%) scale(1.4);  
+}
+
+/*seção contact*/
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--gap);  
+    min-height: 100vh;  
+}
+
+.contact-links-grid {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2, 2fr);
+}
+
+.contact-links-grid a img{
+    width: 14rem;
+    margin: 3rem;
+}
+
+.contact-links-grid a img:hover {
+    transition: all 300ms linear;
+    transform: translate(-3%, 3%) scale(1.2);  
+}
